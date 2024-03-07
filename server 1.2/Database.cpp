@@ -16,6 +16,10 @@ bool Database::createTable(){
     return query.exec("create table users(id integer primary key not null, login text not null unique, password text not null, email text not null unique);");
 }
 
+Database::~Database(){
+    db.close();
+}
+
 Database& Database::getInstance(){
     if(!p_instance){
         p_instance = new Database();
@@ -48,8 +52,8 @@ QStringList Database::queryToDatabase(QStringList src){
 
     QStringList res;
     if(src[0].contains("SELECT")){
-        qDebug() << query.exec();
-        qDebug() << query.first();
+        // qDebug() << query.exec();
+        // qDebug() << query.first();
         if(query.exec() && query.first()){
             res.append("found");
             return res;
@@ -62,5 +66,4 @@ QStringList Database::queryToDatabase(QStringList src){
         }
     }
     return res;
-    //query result to QStringList
 }

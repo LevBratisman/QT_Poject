@@ -28,6 +28,7 @@ private:
     static DatabaseDestroyer destroyer;
     QSqlDatabase db;
     Database();
+    ~Database();
     Database(const Database&) = delete;
     void operator= (const Database&) = delete;
     friend class DatabaseDestroyer;
