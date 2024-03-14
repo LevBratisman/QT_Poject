@@ -89,14 +89,14 @@ bool isValidEmail(QString email) {
     return std::regex_match(email2, emailPattern);
 }
 
-QByteArray task1(QStringList args)
+QByteArray searchShortestDistance(QStringList args)
 {
-    //проверка ответа на градиентный спуск с аргументами args
+    //проверка ответа на метод сплайнов с аргументами args
     return "task1+";
 }
-QByteArray task2(QStringList args)
+QByteArray halvingMethod(QStringList args)
 {
-        //проверка ответа на метод сплайнов с аргументами args
+    //проверка ответа на градиентный спуск с аргументами args
     return "task2+";
 }
 

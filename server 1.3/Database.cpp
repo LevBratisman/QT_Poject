@@ -28,10 +28,6 @@ Database& Database::getInstance(){
     return *p_instance;
 }
 
-QSqlDatabase& Database::getDatabase(){
-    return db;
-}
-
 DatabaseDestroyer::~DatabaseDestroyer() {
     delete p_instance;
 }
