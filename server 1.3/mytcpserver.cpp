@@ -6,32 +6,38 @@ MyTcpServer::~MyTcpServer()
     mTcpServer->close();
 }
 
-MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent){
+MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent)
+{
     mTcpServer = new QTcpServer(this);
 
     connect(mTcpServer, &QTcpServer::newConnection, this, &MyTcpServer::slotNewConnection);
 
-    if(!mTcpServer->listen(QHostAddress::Any, 33333)){
+    if (!mTcpServer->listen(QHostAddress::Any, 33333))
+    {
         qDebug() << "server is not started";
-    } else {
+    }
+    else
+    {
         qDebug() << "server is started";
     }
 }
 
-void MyTcpServer::slotNewConnection(){
+void MyTcpServer::slotNewConnection()
+{
     QTcpSocket *curr_mTcpSocket;
     curr_mTcpSocket = mTcpServer->nextPendingConnection();
-    connect(curr_mTcpSocket, &QTcpSocket::readyRead,this,&MyTcpServer::slotServerRead);
-    connect(curr_mTcpSocket,&QTcpSocket::disconnected,this,&MyTcpServer::slotClientDisconnected);
+    connect(curr_mTcpSocket, &QTcpSocket::readyRead, this, &MyTcpServer::slotServerRead);
+    connect(curr_mTcpSocket, &QTcpSocket::disconnected, this, &MyTcpServer::slotClientDisconnected);
     mTcpSocket.insert(curr_mTcpSocket->socketDescriptor(), curr_mTcpSocket);
 }
 
-void MyTcpServer::slotServerRead(){
+void MyTcpServer::slotServerRead()
+{
     QString res = "";
-    //qDebug()<<((QTcpSocket*)sender())->socketDescriptor();
-    QTcpSocket *curr_mTcpSocket = mTcpSocket[((QTcpSocket*)sender())->socketDescriptor()];
+    // qDebug()<<((QTcpSocket*)sender())->socketDescriptor();
+    QTcpSocket *curr_mTcpSocket = mTcpSocket[((QTcpSocket *)sender())->socketDescriptor()];
 
-    while(curr_mTcpSocket->bytesAvailable()>0)
+    while (curr_mTcpSocket->bytesAvailable() > 0)
     {
         QByteArray array = curr_mTcpSocket->readAll();
         res.append(array);
@@ -40,7 +46,8 @@ void MyTcpServer::slotServerRead(){
     curr_mTcpSocket->write(parsing(res));
 }
 
-void MyTcpServer::slotClientDisconnected(){
+void MyTcpServer::slotClientDisconnected()
+{
     int key = QTcpSocket(sender()).socketDescriptor();
     mTcpSocket[key]->close();
     mTcpSocket.remove(key);

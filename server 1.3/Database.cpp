@@ -1,62 +1,84 @@
 #include "Database.h"
 
-Database* Database::p_instance = nullptr;
+Database *Database::p_instance = nullptr;
 DatabaseDestroyer Database::destroyer;
 
-Database::Database(){
+Database::Database()
+{
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("..//server//DATABASE");
-    if (!db.open()) {
+    if (!db.open())
+    {
         qDebug() << "Error: failed to open database";
     }
 }
 
-bool Database::createTable(){
+bool Database::createTable()
+{
     QSqlQuery query(db);
     return query.exec("create table users(id integer primary key not null, login text not null unique, password text not null, email text not null unique);");
 }
 
-Database::~Database(){
+Database::~Database()
+{
     db.close();
 }
 
-Database& Database::getInstance(){
-    if(!p_instance){
+Database &Database::getInstance()
+{
+    if (!p_instance)
+    {
         p_instance = new Database();
         p_instance->createTable();
     }
     return *p_instance;
 }
 
+<<<<<<< HEAD:server 1.3/Database.cpp
 DatabaseDestroyer::~DatabaseDestroyer() {
+=======
+QSqlDatabase &Database::getDatabase()
+{
+    return db;
+}
+
+DatabaseDestroyer::~DatabaseDestroyer()
+{
+>>>>>>> 64042d481ddef9a7818534e372ce9bb4afae214f:server 1.2/Database.cpp
     delete p_instance;
 }
 
-void DatabaseDestroyer::initialize(Database *p) {
+void DatabaseDestroyer::initialize(Database *p)
+{
     p_instance = p;
 }
 
-QStringList Database::queryToDatabase(QStringList src){
+QStringList Database::queryToDatabase(QStringList src)
+{
     QSqlQuery query(db);
     query.prepare(src[0]);
     int i = 1;
-    while(i < src.size())
+    while (i < src.size())
     {
-        query.bindValue(src[i], src[i+1]);
-        i+=2;
+        query.bindValue(src[i], src[i + 1]);
+        i += 2;
     }
 
     QStringList res;
-    if(src[0].contains("SELECT")){
+    if (src[0].contains("SELECT"))
+    {
         // qDebug() << query.exec();
         // qDebug() << query.first();
-        if(query.exec() && query.first()){
+        if (query.exec() && query.first())
+        {
             res.append("found");
             return res;
         }
     }
-    else{
-        if(query.exec()){
+    else
+    {
+        if (query.exec())
+        {
             res.append("ok");
             return res;
         }
