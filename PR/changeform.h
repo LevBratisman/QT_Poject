@@ -16,9 +16,11 @@ public:
     ~ChangeForm();
 
 private slots:
+/// \brief Вызов вызывающийся при нажатии backButton
     void on_backButton_clicked();
 
 signals:
+/// \brief Вызов сигнала при нажатии на backButton
     void backButtonClikedFromChange();
 private:
     Ui::ChangeForm *ui;

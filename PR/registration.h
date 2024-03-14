@@ -16,8 +16,10 @@ public:
     ~Registration();
 
 private slots:
+    /// \brief слот, который вызывается при нажатии кнопки назад
     void on_backButton_clicked();
 signals:
+    /// \brief слот, вызывающийся при нажатии кнопки назад
     void backButtonClikedFromReg();
 
 private:

@@ -18,14 +18,19 @@ public:
     ~MainWindow();
 
 private slots:
+    /// \brief Слот обработки нажатия кнопки авторизации
     void on_pushButton_clicked();
+    /// \brief Слот обработки нажатия кнопки регистрации
     void on_regButton_clicked();
-
+    /// \brief Слот обработки нажатия кнопки изменения пароля
     void on_changeFormButton_clicked();
 
 signals:
+    /// \brief сигнал, вызывающийся при нажатии кнопки авторизации
     void auth_klick();
+    /// \brief сигнал, вызывающийся при нажатии кнопки регистрации
     void reg_klick();
+    /// \brief сигнал, вызывающийся при нажатии кнопки изменения пароля
     void change_klick();
 
 private:

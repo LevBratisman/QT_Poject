@@ -16,11 +16,14 @@ public:
     ~Authorization();
 
 private slots:
+/// \brief Вызов слота при нажатии на nextWindowButton
     void on_nextWindowButton_clicked();
+/// \brief Вызов слота при нажатии на backButton
     void on_backButton_clicked();
-
 signals:
+/// \brief Вызов сигнала при нажатии на nextWindowButton
     void backButtonClikedFromAuth();
+/// \brief Вызов сигнала при нажатии на nextWindowButton
     void newxButtonClikedFromAuth();
 private:
     Ui::Authorization *ui;
