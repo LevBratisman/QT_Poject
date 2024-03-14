@@ -13,32 +13,34 @@
 
 class Database;
 
+/// \brief Destroyer
 class DatabaseDestroyer
 {
 private:
-    Database * p_instance;
+    Database *p_instance;
+
 public:
     ~DatabaseDestroyer();
-    void initialize(Database * p);
+    void initialize(Database *p);
 };
 
-class Database {
+class Database
+{
 private:
     static Database *p_instance;
     static DatabaseDestroyer destroyer;
     QSqlDatabase db;
     Database();
     ~Database();
-    Database(const Database&) = delete;
-    void operator= (const Database&) = delete;
+    Database(const Database &) = delete;
+    void operator=(const Database &) = delete;
     friend class DatabaseDestroyer;
 
 public:
     bool createTable();
-    static Database& getInstance();
-    QSqlDatabase& getDatabase();
+    static Database &getInstance();
+    QSqlDatabase &getDatabase();
     QStringList queryToDatabase(QStringList);
 };
-
 
 #endif // DATABASE_H

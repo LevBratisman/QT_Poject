@@ -20,7 +20,7 @@ bool isValidEmail(QString email);
 QByteArray task1(QStringList args);
 QByteArray task2(QStringList args);
 
-//void caching();
+// void caching();
 
 QByteArray encript(QByteArray);
 

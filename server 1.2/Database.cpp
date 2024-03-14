@@ -3,10 +3,6 @@
 Database *Database::p_instance = nullptr;
 DatabaseDestroyer Database::destroyer;
 
-/**
- * @brief Construct a new Database:: Database object
- *
- */
 Database::Database()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
@@ -17,32 +13,17 @@ Database::Database()
     }
 }
 
-/**
- * @brief
- *
- * @return true
- * @return false
- */
 bool Database::createTable()
 {
     QSqlQuery query(db);
     return query.exec("create table users(id integer primary key not null, login text not null unique, password text not null, email text not null unique);");
 }
 
-/**
- * @brief Destroy the Database:: Database object
- *
- */
 Database::~Database()
 {
     db.close();
 }
 
-/**
- * @brief
- *
- * @return Database&
- */
 Database &Database::getInstance()
 {
     if (!p_instance)
@@ -53,41 +34,21 @@ Database &Database::getInstance()
     return *p_instance;
 }
 
-/**
- * @brief
- *
- * @return QSqlDatabase&
- */
 QSqlDatabase &Database::getDatabase()
 {
     return db;
 }
 
-/**
- * @brief Destroy the Database Destroyer:: Database Destroyer object
- *
- */
 DatabaseDestroyer::~DatabaseDestroyer()
 {
     delete p_instance;
 }
 
-/**
- * @brief
- *
- * @param p
- */
 void DatabaseDestroyer::initialize(Database *p)
 {
     p_instance = p;
 }
 
-/**
- * @brief
- *
- * @param src
- * @return QStringList
- */
 QStringList Database::queryToDatabase(QStringList src)
 {
     QSqlQuery query(db);

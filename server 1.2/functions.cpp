@@ -1,11 +1,5 @@
 #include "function.h"
 
-/**
- * @brief
- *
- * @param client_data
- * @return QByteArray
- */
 QByteArray parsing(QString client_data)
 {
     QStringList client_data_list = client_data.split("&");
@@ -27,13 +21,6 @@ QByteArray parsing(QString client_data)
     }
 }
 
-/**
- * @brief
- *
- * @param log
- * @param pass
- * @return QByteArray
- */
 QByteArray auth(QString log, QString pass)
 {
     QStringList querySrc;
@@ -54,14 +41,6 @@ QByteArray auth(QString log, QString pass)
     }
 }
 
-/**
- * @brief
- *
- * @param log
- * @param pass
- * @param mail
- * @return QByteArray
- */
 QByteArray reg(QString log, QString pass, QString mail)
 {
     if (isValidEmail(mail))
@@ -103,12 +82,6 @@ QByteArray reg(QString log, QString pass, QString mail)
     }
 }
 
-/**
- * @brief
- *
- * @param src
- * @return QByteArray
- */
 QByteArray encript(QByteArray src)
 {
     QByteArray res;
@@ -117,13 +90,6 @@ QByteArray encript(QByteArray src)
     return res;
 }
 
-/**
- * @brief
- *
- * @param email
- * @return true
- * @return false
- */
 bool isValidEmail(QString email)
 {
     std::string email2 = email.trimmed().toUtf8().constData();
@@ -134,24 +100,12 @@ bool isValidEmail(QString email)
     return std::regex_match(email2, emailPattern);
 }
 
-/**
- * @brief
- *
- * @param args
- * @return QByteArray
- */
 QByteArray task1(QStringList args)
 {
     // проверка ответа на градиентный спуск с аргументами args
     return "task1+";
 }
 
-/**
- * @brief
- *
- * @param args
- * @return QByteArray
- */
 QByteArray task2(QStringList args)
 {
     // проверка ответа на метод сплайнов с аргументами args

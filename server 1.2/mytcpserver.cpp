@@ -1,20 +1,11 @@
 #include "mytcpserver.h"
 #include "function.h"
 
-/**
- * @brief Destroy the My Tcp Server:: My Tcp Server object
- *
- */
 MyTcpServer::~MyTcpServer()
 {
     mTcpServer->close();
 }
 
-/**
- * @brief Construct a new My Tcp Server:: My Tcp Server object
- *
- * @param parent
- */
 MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent)
 {
     mTcpServer = new QTcpServer(this);
@@ -31,10 +22,6 @@ MyTcpServer::MyTcpServer(QObject *parent) : QObject(parent)
     }
 }
 
-/**
- * @brief
- *
- */
 void MyTcpServer::slotNewConnection()
 {
     QTcpSocket *curr_mTcpSocket;
@@ -44,10 +31,6 @@ void MyTcpServer::slotNewConnection()
     mTcpSocket.insert(curr_mTcpSocket->socketDescriptor(), curr_mTcpSocket);
 }
 
-/**
- * @brief
- *
- */
 void MyTcpServer::slotServerRead()
 {
     QString res = "";
@@ -63,10 +46,6 @@ void MyTcpServer::slotServerRead()
     curr_mTcpSocket->write(parsing(res));
 }
 
-/**
- * @brief
- *
- */
 void MyTcpServer::slotClientDisconnected()
 {
     int key = QTcpSocket(sender()).socketDescriptor();

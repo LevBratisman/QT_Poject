@@ -4,13 +4,6 @@
 #include <iostream>
 #include "function.h"
 
-/**
- * @brief
- *
- * @param argc
- * @param argv
- * @return int
- */
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
