@@ -27,7 +27,6 @@ bool isValidEmail(QString email);
 QByteArray searchShortestDistance(QStringList args);
 QByteArray halvingMethod(QStringList args);
 
-//void caching();
 /// \brief Функция шифрования
 /// \param src Информация о статистике пользователя
 QByteArray encript(QByteArray src);

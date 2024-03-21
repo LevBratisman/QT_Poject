@@ -20,11 +20,12 @@ Authorization::~Authorization()
 
 void Authorization::on_nextWindowButton_clicked()
 {
-    if ((ui->user_name->text() == this->user_name) && (ui->password->text() == this->password)) {
-        emit newxButtonClikedFromAuth();
-    } else {
-        QMessageBox::warning(this, "вход", "введен не правильный логин или пароль");
-    }
+    socket->connectToHost();
+    // if ((ui->user_name->text() == this->user_name) && (ui->password->text() == this->password)) {
+    //     emit newxButtonClikedFromAuth();
+    // } else {
+    //     QMessageBox::warning(this, "вход", "введен не правильный логин или пароль");
+    // }
 }
 
 

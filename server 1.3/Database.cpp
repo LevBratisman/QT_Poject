@@ -6,7 +6,7 @@ DatabaseDestroyer Database::destroyer;
 Database::Database()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("..//server//DATABASE");
+    db.setDatabaseName("DATABASE");
     if (!db.open())
     {
         qDebug() << "Error: failed to open database";
@@ -34,17 +34,8 @@ Database &Database::getInstance()
     return *p_instance;
 }
 
-<<<<<<< HEAD:server 1.3/Database.cpp
-DatabaseDestroyer::~DatabaseDestroyer() {
-=======
-QSqlDatabase &Database::getDatabase()
-{
-    return db;
-}
-
 DatabaseDestroyer::~DatabaseDestroyer()
 {
->>>>>>> 64042d481ddef9a7818534e372ce9bb4afae214f:server 1.2/Database.cpp
     delete p_instance;
 }
 

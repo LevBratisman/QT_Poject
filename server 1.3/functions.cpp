@@ -102,14 +102,12 @@ bool isValidEmail(QString email)
 
 QByteArray searchShortestDistance(QStringList args)
 {
-<<<<<<< HEAD:server 1.3/functions.cpp
     //проверка ответа на метод сплайнов с аргументами args
     return "task1+";
 }
 QByteArray halvingMethod(QStringList args)
 {
     //проверка ответа на градиентный спуск с аргументами args
-=======
     // проверка ответа на градиентный спуск с аргументами args
     return "task1+";
 }
@@ -117,11 +115,10 @@ QByteArray halvingMethod(QStringList args)
 QByteArray task2(QStringList args)
 {
     // проверка ответа на метод сплайнов с аргументами args
->>>>>>> 64042d481ddef9a7818534e372ce9bb4afae214f:server 1.2/functions.cpp
     return "task2+";
 }
 
-// QByteArray viewStat(){
-//     QString stat = "ivanov&12&4";// из БД
-//     return encript(stat);
-// }
+QByteArray viewStat(){
+    QString stat = "ivanov&12&4";// из БД
+    return encript(stat.toUtf8());
+}
