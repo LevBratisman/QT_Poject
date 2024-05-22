@@ -20,7 +20,6 @@ Authorization::~Authorization()
 
 void Authorization::on_nextWindowButton_clicked()
 {
-    socket->connectToHost();
     // if ((ui->user_name->text() == this->user_name) && (ui->password->text() == this->password)) {
     //     emit newxButtonClikedFromAuth();
     // } else {

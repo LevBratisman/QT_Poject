@@ -14,6 +14,7 @@ SOURCES += \
     handler.cpp \
     main.cpp \
     mainwindow.cpp \
+    net.cpp \
     registration.cpp \
     tasks.cpp
 
@@ -22,6 +23,7 @@ HEADERS += \
     changeform.h \
     handler.h \
     mainwindow.h \
+    net.h \
     registration.h \
     tasks.h
 
