@@ -1,6 +1,6 @@
 #include "authorization.h"
 #include "ui_authorization.h"
-#include <QMessageBox>
+
 
 Authorization::Authorization(QWidget *parent)
     : QWidget(parent)
@@ -18,13 +18,10 @@ Authorization::~Authorization()
 }
 
 
+
 void Authorization::on_nextWindowButton_clicked()
 {
-    // if ((ui->user_name->text() == this->user_name) && (ui->password->text() == this->password)) {
-    //     emit newxButtonClikedFromAuth();
-    // } else {
-    //     QMessageBox::warning(this, "вход", "введен не правильный логин или пароль");
-    // }
+    emit newAuth(ui->user_name->text(), ui->password->text());
 }
 
 

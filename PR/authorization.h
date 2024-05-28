@@ -25,6 +25,8 @@ signals:
     void backButtonClikedFromAuth();
 /// \brief Вызов сигнала при нажатии на nextWindowButton
     void newxButtonClikedFromAuth();
+
+    void newAuth(QString name, QString pass);
 private:
     Ui::Authorization *ui;
 

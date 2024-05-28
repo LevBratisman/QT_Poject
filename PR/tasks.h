@@ -15,6 +15,13 @@ public:
     explicit Tasks(QWidget *parent = nullptr);
     ~Tasks();
 
+private slots:
+    void on_OpenDijkstraButton_clicked();
+
+    void on_pushBackButton_clicked();
+signals:
+    void OpenDijkstraButtonClickedFromTasks();
+    void backButtonClikedFromTasks();
 private:
     Ui::Tasks *ui;
 };

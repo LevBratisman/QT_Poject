@@ -12,3 +12,15 @@ Tasks::~Tasks()
 {
     delete ui;
 }
+
+void Tasks::on_OpenDijkstraButton_clicked()
+{
+    emit OpenDijkstraButtonClickedFromTasks();
+}
+
+
+void Tasks::on_pushBackButton_clicked()
+{
+    emit backButtonClikedFromTasks();
+}
+

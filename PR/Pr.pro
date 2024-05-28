@@ -10,7 +10,9 @@ CONFIG += c++17
 
 SOURCES += \
     authorization.cpp \
+    bi.cpp \
     changeform.cpp \
+    dijkstra.cpp \
     handler.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -20,7 +22,9 @@ SOURCES += \
 
 HEADERS += \
     authorization.h \
+    bi.h \
     changeform.h \
+    dijkstra.h \
     handler.h \
     mainwindow.h \
     net.h \
@@ -29,7 +33,9 @@ HEADERS += \
 
 FORMS += \
     authorization.ui \
+    bi.ui \
     changeform.ui \
+    dijkstra.ui \
     mainwindow.ui \
     registration.ui \
     tasks.ui
