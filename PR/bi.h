@@ -3,8 +3,9 @@
 
 #include <QWidget>
 
-namespace Ui {
-class Bi;
+namespace Ui
+{
+    class Bi;
 }
 
 class Bi : public QWidget
@@ -14,6 +15,8 @@ class Bi : public QWidget
 public:
     explicit Bi(QWidget *parent = nullptr);
     ~Bi();
+    /// \brief Получение результата от сервера
+    /// \param data
     void getDataBackFromHandler(QString data);
 
 private slots:
@@ -22,7 +25,9 @@ private slots:
     void on_BackButtonFromBi_clicked();
 
 signals:
+    /// \brief Отправка данных(аргументов функции) на сервер
     void SendDataFromBi(QString a, QString b, QString c);
+    /// \brief Вернуться в главное меню
     void backButtonClikedFromBi();
 
 private:

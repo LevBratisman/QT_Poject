@@ -3,8 +3,9 @@
 
 #include <QWidget>
 
-namespace Ui {
-class Tasks;
+namespace Ui
+{
+    class Tasks;
 }
 
 class Tasks : public QWidget
@@ -16,12 +17,16 @@ public:
     ~Tasks();
 
 private slots:
+    /// \brief Слот обработки нажатия кнопки для открытия задачи 'Алгоритм Дейкстры'
     void on_OpenDijkstraButton_clicked();
-
+    /// \brief Вернуться в главное меню
     void on_pushBackButton_clicked();
 signals:
+    /// \brief Сигнал обработки нажатия кнопки для открытия задачи 'Алгоритм Дейкстры'
     void OpenDijkstraButtonClickedFromTasks();
+    /// \brief Вернуться в главное меню из меню задач
     void backButtonClikedFromTasks();
+
 private:
     Ui::Tasks *ui;
 };

@@ -8,12 +8,14 @@ class Net : public QObject
     Q_OBJECT
 public:
     Net();
+    /// \brief Отправка данных на сервер
+    /// \param str Данные
     void send_to_server(QString str);
     QString getData();
 private slots:
     void slotReadyReed();
-private:
 
+private:
     void connect_socket();
     static Net *p_net;
     QTcpSocket *socket;

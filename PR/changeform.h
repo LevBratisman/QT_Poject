@@ -3,8 +3,9 @@
 
 #include <QWidget>
 
-namespace Ui {
-class ChangeForm;
+namespace Ui
+{
+    class ChangeForm;
 }
 
 class ChangeForm : public QWidget
@@ -16,12 +17,13 @@ public:
     ~ChangeForm();
 
 private slots:
-/// \brief Вызов вызывающийся при нажатии backButton
+    /// \brief Вызов при нажатии backButton
     void on_backButton_clicked();
 
 signals:
-/// \brief Вызов сигнала при нажатии на backButton
+    /// \brief Вызов сигнала при нажатии на backButton
     void backButtonClikedFromChange();
+
 private:
     Ui::ChangeForm *ui;
 };
