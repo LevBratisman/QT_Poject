@@ -21,11 +21,15 @@ private slots:
     void on_OpenDijkstraButton_clicked();
     /// \brief Вернуться в главное меню
     void on_pushBackButton_clicked();
+    void on_BiButton_clicked();
+
 signals:
     /// \brief Сигнал обработки нажатия кнопки для открытия задачи 'Алгоритм Дейкстры'
     void OpenDijkstraButtonClickedFromTasks();
     /// \brief Вернуться в главное меню из меню задач
     void backButtonClikedFromTasks();
+
+    void OpenBiButtonClickedFromTasks();
 
 private:
     Ui::Tasks *ui;

@@ -29,6 +29,7 @@ void Handler::openTasksForm() {
     tasts = new Tasks;
     tasts->show();
     connect(tasts, SIGNAL(OpenDijkstraButtonClickedFromTasks()), this, SLOT(handle_dijkstraButtonClickedFromTasks()));
+    connect(tasts, SIGNAL(OpenBiButtonClickedFromTasks()), this, SLOT(handle_OpenBiButtonClickedFromTasks()));
     connect(tasts, SIGNAL(backButtonClikedFromTasks()), this, SLOT(handle_backButtonClikedFromTasks()));
 }
 
@@ -54,17 +55,21 @@ void Handler::openDijkstraForm(){
 }
 
 void Handler::openBiForm() {
-    delete tasts;
     bi = new Bi;
     bi->show();
-    connect(change_form, SIGNAL(SendDataFromBi(QString,QString,QString)), this, SLOT(handle_DataFromBi(QString,QString,QString)));
-    connect(change_form, SIGNAL(backButtonClikedFromBi()), this, SLOT(backButtonClikedFromBi()));
+    connect(bi, SIGNAL(SendDataFromBi(QString,QString,QString)), this, SLOT(handle_DataFromBi(QString,QString,QString)));
+    connect(bi, SIGNAL(backButtonClikedFromBi()), this, SLOT(handle_backButtonClikedFromBi()));
 }
 
 
 void Handler::openAuthorizationFromFirstWindow() {
     delete first_wind;
     openAuthorization();
+}
+
+void Handler::handle_OpenBiButtonClickedFromTasks() {
+    delete tasts;
+    openBiForm();
 }
 
 void Handler::handle_backButtonClikedFromReg() {
@@ -103,7 +108,7 @@ void Handler::handle_dijkstraButtonClickedFromTasks() {
 }
 
 void Handler::handle_DataFromBi(QString a, QString b, QString c) {
-    QString str_to_send = "bi";
+    QString str_to_send = "bisection_method";
     str_to_send.append("&");
     str_to_send.append(a);
     str_to_send.append("&");
@@ -113,6 +118,7 @@ void Handler::handle_DataFromBi(QString a, QString b, QString c) {
     str_to_send.append("&");
     net->send_to_server(str_to_send);
     qDebug() << "data is = " <<net->getData();
+    bi->getDataBackFromHandler(net->getData());
 }
 
 void Handler::getDataFromDijkstra(QString cur_p, QString start_p, QString data_str) {

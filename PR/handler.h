@@ -44,6 +44,9 @@ public slots:
     /// \brief Слот обрабатывающий нажатие кнопки меню с алгоритмом Дейкстры
     void handle_backButtonClikedFromDijkstra();
     /// \brief Слот обрабатывающий нажатие кнопки меню с Бисекцией
+
+    void handle_OpenBiButtonClickedFromTasks();
+
     void handle_backButtonClikedFromBi();
     /// \brief Слот обрабатывающий нажатие кнопки меню с алгоритмом Дейкстры
     void handle_dijkstraButtonClickedFromTasks();

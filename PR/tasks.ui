@@ -24,9 +24,9 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="BiButton">
       <property name="text">
-       <string>Задача2</string>
+       <string>bisection_method</string>
       </property>
      </widget>
     </item>

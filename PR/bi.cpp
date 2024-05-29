@@ -20,7 +20,11 @@ void Bi::on_OkButton_clicked()
 
 void Bi::getDataBackFromHandler(QString data) {
     qDebug() << "ans is = " << data;
-    ui->output->setText(data);
+    if(data == "0") {
+        ui->output->setText("Нет вещественных корней или метод бисекции не может быть применен");
+    } else {
+        ui->output->setText(data);
+    }
 }
 
 void Bi::on_BackButtonFromBi_clicked()

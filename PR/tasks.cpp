@@ -24,3 +24,9 @@ void Tasks::on_pushBackButton_clicked()
     emit backButtonClikedFromTasks();
 }
 
+
+void Tasks::on_BiButton_clicked()
+{
+    emit OpenBiButtonClickedFromTasks();
+}
+

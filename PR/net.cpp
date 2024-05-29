@@ -9,7 +9,7 @@ Net::Net() {
 void Net::connect_socket() {
 
     qDebug() << "connect_socket";
-    socket->connectToHost("172.23.50.180", 33333);
+    socket->connectToHost("192.168.238.136", 33333);
     if(socket->waitForConnected(3000))
     {
         qDebug() << "Connected!";
